@@ -1,0 +1,325 @@
+* {
+  padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+body {
+  background:
+              url('/src/background-image.jpg');
+  background-size: cover;
+  background-position: center;
+  backdrop-filter: blur(5px);
+  animation: backgroundAnimation 15s ease infinite;
+  transition: backdrop-filter 0.5s ease;
+}
+
+/* Add a subtle zoom effect on hover */
+body:hover {
+  backdrop-filter: blur(10px);
+}
+
+/* Keyframes for a slow panning animation */
+@keyframes backgroundAnimation {
+  0% {
+    background-position: center;
+  }
+  50% {
+    background-position: top;
+  }
+  100% {
+    background-position: center;
+  }
+}
+
+
+.notes-page {
+  width: 100%;
+  min-height: 100vh;
+  color: whitesmoke;
+}
+
+.notes-page header {
+  max-width: 1920px;
+  min-height: 100px;
+  overflow: hidden;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+/* Styling for all links */
+a {
+  text-decoration: none;
+  color: rgb(7, 59, 63);
+  font-family: 'Papyrus', fantasy;
+  transition: transform 0.3s ease; /* Smooth transition for zoom effect */
+}
+
+/* Hover effect for links */
+a:hover {
+  transform: scale(1.1); /* Zoom in effect */
+}
+
+
+.notes-page header .logo {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.notes-page header ul li {
+  list-style: none;
+  display: inline-block;
+  padding: 0 15px;
+}
+
+.notes-page header ul li a {
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+
+.notes-page header ul li a:hover {
+  opacity: 1;
+}
+
+.notes-page section {
+  width: 100%;
+  box-shadow: 0 0 5px rgb(7,25,63);
+  padding: 20px 0;
+}
+
+.note-wrapper {
+  max-width: 1920px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: auto;
+}
+
+.card {
+  width: 300px;
+  box-shadow: 0 0 5px rgb(7, 25, 63);
+  background: rgb(7, 59, 63);
+  padding: 10px;
+  position: relative;
+  color: #ddd;
+  margin: 15px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.1); /* Zoom in slightly */
+  box-shadow: 0 0 15px rgb(7, 25, 63); /* Increase shadow on hover */
+}
+
+
+.card .close {
+  position: absolute;
+  top: 0;
+  right: 10px;
+  font-weight: 900;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: rgb(255, 255, 255);
+  transition: color 0.3s ease; /* Smooth transition for color change */
+}
+
+.card .close:hover {
+  color: rgba(252, 0, 0, 0.704); /* Change color to red on hover */
+}
+
+.card h4 {
+  margin-right: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.card .text-wrapper {
+  width: 100%;
+  height: 150px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 7;
+  overflow: hidden;
+  margin: 10px 0;
+  color: #fff9;
+}
+
+.card .date {
+  text-align: right;
+  color: wheat;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 12px;
+}
+
+/* ******* Create Note******************* */
+.create-note {
+  max-width: 500px;
+  width: 100%;
+  margin: auto;
+  border: 10px solid rgb(7, 59, 63);
+  padding: 30px;
+}
+
+.create-note h2 {
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin: 10px 0;
+}
+
+.create-note .row {
+  width: 100%;
+  margin: 10px 0;
+}
+
+.create-note input,
+.create-note button {
+  width: 100%;
+  height: 40px;
+  padding: 0 5px;
+}
+
+.create-note label {
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+
+.create-note textarea {
+  width: 100%;
+  resize: none;
+  padding: 0 5px;
+}
+
+.create-note button {
+  cursor: pointer;
+  text-transform: uppercase;
+  font-weight: 900;
+  letter-spacing: 2px;
+  color: rgb(7,25,63);
+}
+
+@media (max-width: 500px) {
+  .create-note {
+    padding: 15px;
+    border: 5px solid #ccc;
+  }
+}
+
+/* *********Login / Register******* */
+.login-page {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.login input,
+.register input {
+  margin-bottom: 15px;
+}
+
+.login,
+.register {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgb(7, 59, 63);
+}
+
+.login-page h2,
+.login-page h3 {
+  color: #fff8;
+}
+
+.login-page h3 {
+  text-align: center;
+  text-transform: uppercase;
+  margin-top: 15px;
+}
+
+.login-page p {
+  margin: 10px 0;
+  color: #ffffff;
+}
+
+.login-page span:hover {
+  color: #ffa500;
+  cursor: pointer;
+}
+
+.title-container {
+  text-align: center;
+  margin-top: 1px; /* Move the title lower on the page */
+  margin-bottom: 50px;
+}
+
+/* Title Styling */
+.title {
+  font-size: 44px;
+  color: rgb(7, 59, 63);
+  font-family: 'Papyrus', fantasy; 
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  animation: fadeIn 1.2s ease-in-out;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+/* Hover Effect for Title */
+.title:hover {
+  transform: scale(1.05);
+  color: #000000; /* Subtle color change on hover */
+}
+
+/* Welcome Note Styling */
+.welcome-note {
+  font-size: 20px;
+  color: #e0e0e0;
+  margin-top: 10px;
+  font-family: 'Open Sans', sans-serif; /* Clean and modern sans-serif font */
+  animation: fadeIn 1.5s ease-in-out;
+  transition: color 0.3s ease;
+}
+
+/* Hover Effect for Welcome Note */
+.welcome-note:hover {
+  color: #b4232384; /* Matches the title on hover */
+}
+
+/* Keyframes for Title and Welcome Note Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
